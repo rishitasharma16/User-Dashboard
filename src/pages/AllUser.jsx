@@ -7,6 +7,10 @@ import { FaUserPlus } from "react-icons/fa";
 
 function AllUser() {
   const userData = getUserList();
+  
+  const handleSearch=()=>{
+
+  }
 
   return (
     <>
@@ -21,15 +25,16 @@ function AllUser() {
               type="text"
               placeholder="Search User"
               className="border-2 w-full md:w-2/4 border-slate-300 py-1 px-3 rounded-lg"
+
             />
-            <button type="button" className="bg-blue-500 p-1 ms-2 px-4 rounded-lg">
+            <button type="button" className="bg-blue-500 p-1 ms-2 px-4 rounded-lg hover:bg-blue-600 transition ease-in-out" onClick={handleSearch}>
               <IoSearch className="text-white" />
             </button>
 
             
           </div>
 
-          <Link to='/add_user' className="flex ms-0 md:ms-5 bg-blue-500 items-center px-3 py-3 md:py-0 md:px-3 rounded-lg text-white">
+          <Link to='/add_user' className="flex ms-0 md:ms-5 hover:bg-blue-600 transition ease-in-out bg-blue-500 items-center px-3 py-3 md:py-0 md:px-3 rounded-lg text-white">
               <FaUserPlus className="mr-3" />
               <span> Add New User </span>
             </Link>
@@ -55,7 +60,8 @@ function AllUser() {
                       <Link
                         to={"/user_detail"}
                         state={{ id: item.id }}
-                        className="text-blue-500 underline underline-offset-4"
+                        className="text-blue-400 underline underline-offset-4 hover:text-blue-600 transition ease-in-out"
+                        title="Click to See Details"
                       >
                         {item.email}
                       </Link>

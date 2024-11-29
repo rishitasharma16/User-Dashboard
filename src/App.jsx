@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import AllUser from './pages/AllUser'
 import UserDetail from './pages/UserDetail';
 import AddUser from './pages/AddUser';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
