@@ -2,21 +2,21 @@ import React, { useEffect, useState } from "react";
 import { IoMdArrowBack } from "react-icons/io";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import getUserList from "../api/getUserList";
+import avatar from "../assets/images/avatar.png";
+import DetailCard from "../components/card/DetailCard";
 
 function UserDetail() {
-    
-    const {state} = useLocation()
-    const navigate = useNavigate()
+  const { state } = useLocation();
+  const navigate = useNavigate();
 
-    useEffect(()=>{
-        if(!state){
-            navigate('/all_users')
-        }
-    },[])
+  useEffect(() => {
+    if (!state) {
+      navigate("/all_users");
+    }
+  }, []);
 
-    const {data} = getUserList(state?.id)
+  const { data } = getUserList(state?.id);
 
-        
   return (
     <div className="p-4">
       <div className="mb-7 flex justify-between ">
@@ -31,34 +31,29 @@ function UserDetail() {
           </button>
         </Link>
       </div>
-    {data?  <div className="flex">
-            <div className="m-auto h-max w-3/4 bg-slate-100 border border-slate-300 rounded-lg">
-                <div className="text-center ">
-                    <h1 className="font-bold text-2xl">Rishita sharma</h1>
-                    <h2 className="text-lg font-semibold">Rishi</h2>
-                </div>
-
-                <div className="flex flex-col md:flex-row justify-center bg-red-200">
-                    <ul>
-                        <li>Email:
-                            <span >{data.email}</span>
-                        </li>
-                        <li>Username:
-                            <span>{data.name}</span>
-                        </li>
-                        <li>Phone
-                            <span>mailrishita</span>
-                        </li>
-                        <li>Website
-                            <span>mailrishita</span>
-                        </li>
-                        <li>Company
-                            <span>mailrishita</span>
-                        </li>
-                    </ul>
-                </div>
+      {data ? (
+        <div className="m-auto w-full md:w-2/3 bg-slate-100 border p-4 border-slate-300 rounded-lg overflow-hidden">
+          <div className="w-full h-28 flex items-center pb-3 border-b-2 border-slate-400">
+            <img className="h-1/2 md:h-full" src={avatar} alt="avatar" />
+            <div className="ml-8">
+            <h1 className="text-2xl">{data.name}</h1>
+            <p>{data.email}</p>
             </div>
-      </div>:<h2>Loading...</h2>}
+          </div>
+
+          <div className="mt-4">
+            <DetailCard title={'username'} text={data.username} />
+            <DetailCard title={'name'} text={data.name} />
+            <DetailCard title={'email'} text={data.email} />
+            <DetailCard title={'phone'} text={data.phone} />
+            <DetailCard title={'website'} text={data.website} />
+            <DetailCard title={'company'} text={data.company.name} small_text={data.company.catchPhrase} detail_text={data.company.bs}/>
+            <DetailCard title={'address'} text={data.address.city} small_text={data.address.street} detail_text={data.address.suite}/>
+          </div>
+        </div>
+      ) : (
+        <h2>Loading...</h2>
+      )}
     </div>
   );
 }

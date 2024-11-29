@@ -5,6 +5,7 @@ import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 import Home from './pages/Home'
 import AllUser from './pages/AllUser'
 import UserDetail from './pages/UserDetail';
+import AddUser from './pages/AddUser';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route index element={<Home/>}/>
         <Route path='all_users' element={<AllUser/>}/>
         <Route path='user_detail' element={<UserDetail/>}/>
+        <Route path='add_user' element={<AddUser/>}/>
       </Route>
     </Routes>
   )

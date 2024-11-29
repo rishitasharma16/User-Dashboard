@@ -19,7 +19,7 @@ function Navbar() {
         <RiMenu2Fill
           onClick={handleSidebar}
           size={23}
-          className="text-slate-400 hover:text-slate-950 transition ease-in-out cursor-pointer"
+          className="text-slate-400 hover:text-slate-950 transition ease-in-out cursor-pointer hidden md:block"
         />
         <h1 className="ml-4">brand name</h1>
       </div>

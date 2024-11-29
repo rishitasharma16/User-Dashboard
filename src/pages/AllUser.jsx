@@ -3,6 +3,7 @@ import getUserList from "../api/getUserList";
 import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table";
 import { IoSearch } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import { FaUserPlus } from "react-icons/fa";
 
 function AllUser() {
   const userData = getUserList();
@@ -14,16 +15,24 @@ function AllUser() {
           <h3 className="font-semibold text-lg">
             All Users : {userData.data?.length}
           </h3>
-          <div className="w-full md:w-1/2  flex justify-end">
+
+          <div className="w-full md:w-1/2 flex   justify-end mb-4 md:mb-0">
             <input
               type="text"
               placeholder="Search User"
               className="border-2 w-full md:w-2/4 border-slate-300 py-1 px-3 rounded-lg"
             />
-            <button type="button" className="bg-blue-500 p-2 ms-2 rounded-lg">
-              <IoSearch className="text-white" />{" "}
+            <button type="button" className="bg-blue-500 p-1 ms-2 px-4 rounded-lg">
+              <IoSearch className="text-white" />
             </button>
+
+            
           </div>
+
+          <Link to='/add_user' className="flex ms-0 md:ms-5 bg-blue-500 items-center px-3 py-3 md:py-0 md:px-3 rounded-lg text-white">
+              <FaUserPlus className="mr-3" />
+              <span> Add New User </span>
+            </Link>
         </div>
         <div>
           <Table>
