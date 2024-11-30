@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { RiMenu2Fill } from "react-icons/ri";
 import { useDispatch, useSelector } from "react-redux";
 import { sidebar } from "../../redux/slices/dashboardSlice";
